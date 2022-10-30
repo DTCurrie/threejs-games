@@ -1,0 +1,10 @@
+html, body, div {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+#app canvas {
+	background: url(/vecteezy_bright-cloudy-sky-cartoon-vector-illustration-background_6631117.jpg) no-repeat center center;
+	background-size: cover;
+}

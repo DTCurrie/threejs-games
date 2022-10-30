@@ -1,0 +1,9 @@
+{
+  "name": "emitter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "module": "src/emitter.ts",
+  "scripts": {},
+  "devDependencies": {}
+}
