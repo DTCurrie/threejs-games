@@ -1,5 +1,4 @@
 import {OrthographicCamera, PerspectiveCamera} from 'three';
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 
 export type PerspectiveCameraOptions = {
 	fov?: number;
@@ -9,21 +8,14 @@ export type PerspectiveCameraOptions = {
 	control?: boolean;
 };
 
-export const perspectiveCamera = (rendererElement: HTMLCanvasElement, {
+export const perspectiveCamera = ({
 	fov = 60,
 	aspect = 2,
 	near = 0.1,
 	far = 5000,
-	control,
-}: PerspectiveCameraOptions): {camera: PerspectiveCamera; controls: OrbitControls} => {
-	const instance = new PerspectiveCamera(fov, aspect, near, far);
-
-	const controls = new OrbitControls(instance, rendererElement);
-	controls.enabled = Boolean(control);
-	controls.enableDamping = true;
-	controls.dampingFactor = 0.2;
-
-	return {camera: instance, controls};
+}: PerspectiveCameraOptions) => {
+	const camera = new PerspectiveCamera(fov, aspect, near, far);
+	return {camera};
 };
 
 export type OrthographicCameraOptions = {
@@ -36,21 +28,14 @@ export type OrthographicCameraOptions = {
 	control?: boolean;
 };
 
-export const orthographicCamera = (rendererElement: HTMLCanvasElement, {
+export const orthographicCamera = ({
 	left,
 	right,
 	top,
 	bottom,
-	near,
-	far,
-	control,
+	near = 1,
+	far = 1000,
 }: OrthographicCameraOptions) => {
-	const instance = new OrthographicCamera(left, right, top, bottom, near, far);
-
-	const controls = new OrbitControls(instance, rendererElement);
-	controls.enabled = Boolean(control);
-	controls.enableDamping = true;
-	controls.dampingFactor = 0.2;
-
-	return {camera: instance, controls};
+	const camera = new OrthographicCamera(left, right, top, bottom, near, far);
+	return {camera};
 };

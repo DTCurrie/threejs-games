@@ -28,7 +28,7 @@
     antialias: true,
     alpha: true,
   });
-  const { camera } = perspectiveCamera(renderer.domElement, {});
+  const { camera } = perspectiveCamera({});
 
   let main: HTMLElement;
   let interval;
